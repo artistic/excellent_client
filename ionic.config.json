@@ -1,0 +1,8 @@
+{
+  "name": "Proximat",
+  "app_id": "8c1bf586",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

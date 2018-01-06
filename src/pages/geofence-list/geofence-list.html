@@ -1,0 +1,60 @@
+<ion-header class="text-success" no-border>
+  <ion-navbar color="white">
+
+    <ion-title><span class="text-success header_ndini">Your Bookings </span></ion-title>
+    <ion-buttons start>
+      <button ion-button>
+
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+      <span class="fa-stack fa-lg" (click)="new()">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-book fa-stack-1x fa-inverse"></i>
+      </span>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="geofence-list-page" padding>
+
+
+  <div class="editTools">
+    <div class="col-xs-12">
+      <div class="direct-chat direct-chat-info">
+        <div class="direct-chat-msg right">
+          <!-- /.direct-chat-info -->
+          <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+          <!-- /.direct-chat-img -->
+          <div class="direct-chat-text">
+            <small>You are about to add a booking to your account. Please make sure to follow all the steps that follow. </small>
+          </div>
+          <!-- /.direct-chat-text -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <br/>
+
+  <div class="tutorial">
+    <ion-slides pager="true">
+
+      <ion-slide *ngFor="let article of articles | async" >
+        <h3 class="header_ndini">{{article.title}}</h3>
+        <img [src]="article.image" class="img-responsive">
+      </ion-slide>
+
+    </ion-slides>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <button type="button" class="btn btn-success btn-block" (click)="new()"> Continue To New Booking</button>
+    </div>
+  </div>
+
+
+</ion-content>

@@ -1,0 +1,51 @@
+<ion-header>
+
+  <ion-navbar color="prox">
+    <ion-title>Logging Mode</ion-title>
+  </ion-navbar>
+ 
+ 
+ 
+
+</ion-header>
+
+
+<ion-content>
+
+<ion-card color="dark" (click)="goToHazards()">
+
+  <ion-card-header>
+    Select Hazard Observed
+  </ion-card-header>
+  </ion-card>
+<ion-card color="dark">
+ <ion-item color="dark">
+  <ion-label>Select Start Time</ion-label>
+  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" ></ion-datetime>
+</ion-item>
+  </ion-card>
+  <ion-card color="dark">
+ <ion-item color="dark">
+  <ion-label>Select End Time</ion-label>
+  <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" ></ion-datetime>
+</ion-item>
+  </ion-card>
+  <!--<ion-card color="dark">
+   <ion-card-header>
+    Set Geofence Perimeter
+  </ion-card-header>
+  </ion-card>-->
+
+<ion-card color="dark" (click)="goToHazards()" margin-bottom>
+   <ion-card-header>
+    Upload Hazard 
+  </ion-card-header>
+</ion-card>
+<ion-card color="dark" (click)="goToFindHazards()" >
+   <ion-card-header>
+    Find Hazard Location
+  </ion-card-header>
+  </ion-card>
+
+ <button  ion-button  block (click)="logOut()"  margin-top>Logout </button>
+</ion-content>

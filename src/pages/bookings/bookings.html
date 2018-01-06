@@ -1,0 +1,107 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+        <ion-segment [(ngModel)]="cat">
+
+            <ion-segment-button value="cars">
+                <span class="our_text">
+                    <i class="fa fa-book" aria-hidden="true"></i>
+                    Find Us
+                </span>
+            </ion-segment-button>
+            <ion-segment-button value="map">
+                <span class="our_text">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+                  Washers
+              </span>
+          </ion-segment-button>
+      </ion-segment>
+
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <div [ngSwitch]="cat">
+
+        <ion-list *ngSwitchCase="'cars'">
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6610.27689805786!2d18.458744!3d-34.065965!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc9da5c868f62f006!2sEngen+Tokai+Retail+Centre!5e0!3m2!1sen!2sus!4v1514543351396" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+             <h3 class="profile-username text-center">Tokai Garage</h3>
+
+             <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b><i class="fa fa-mobile"></i> Mobile</b> <a class="pull-right">+27 78 862 1769</a>
+                </li>
+                <li class="list-group-item">
+                  <b><i class="fa fa-envelope"></i> Email</b> <a class="pull-right">info@excellentecocarwash.co.za/</a>
+                </li>
+                <li class="list-group-item">
+                  <b><i class="fa fa-globe"></i> Website</b> <a class="pull-right">excellentecocarwash.co.za</a>
+                </li>
+              </ul>
+
+        </ion-list>
+  
+        <ion-fab top right edge>
+    <button ion-fab color="primary" (click)= "goToMap()"><ion-icon name="locate"></ion-icon></button>
+  </ion-fab>
+
+        <ion-list *ngSwitchCase="'map'">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="direct-chat direct-chat-warning">
+                        <div class="direct-chat-msg right">
+                            <!-- /.direct-chat-info -->
+                            <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+                            <!-- /.direct-chat-img -->
+                            <div class="direct-chat-text">
+                                <small> All our washers are registered on our main database and you can confirm the validity of a washer before they start.</small>
+                            </div>
+                            <!-- /.direct-chat-text -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="users-list clearfix">
+                <li *ngFor="let washer of washer | async">
+                  <img [src]="washer.washer_image" alt="User Image" (click)="goToWasherDetail(washer)">
+                  <a class="users-list-name"><small>{{washer.washer_name}}</small></a>
+                  <span class="users-list-date" *ngIf="(washer.washer_available == 2)">
+                    <small>
+                    <i class="fa fa-circle text-danger" aria-hidden="true"></i>
+                </small>
+                </span>
+
+                <span class="users-list-date" *ngIf="(washer.washer_available == 1)">
+                    <small>
+                    <i class="fa fa-circle text-success" aria-hidden="true"></i>
+                </small>
+                </span>
+            </li>
+        </ul>
+
+
+    </ion-list>
+</div>
+
+
+<!-- Where are you trying to place the uid? -->
+
+</ion-content>
+
+<ion-fab left bottom>
+    <button ion-fab color="prox"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
+    <ion-fab-list side="top">
+        <button ion-fab color="prox" (click)="logOut()"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+        <button ion-fab color="prox" (click)="goToServices()"><i class="fa fa-cog" aria-hidden="true"></i></button>
+        <button ion-fab color="prox" (click)="goToFaq()"><i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+        <button ion-fab color="prox" (click)="goToProfile()"><i class="fa fa-user" aria-hidden="true"></i></button>
+    </ion-fab-list>
+</ion-fab>
+
+<ion-fab right bottom>
+    <button ion-fab color="prox" (click)="goToHazards()"><ion-icon ios="ios-add" md="md-add"></ion-icon></button>
+</ion-fab>

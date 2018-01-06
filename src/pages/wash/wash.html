@@ -1,0 +1,37 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">{{ washInfo.wash_type }} </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-car fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <div class="box-body box-profile">
+        <img class="profile-user-img img-responsive img-circle" [src]="washInfo.wash_image" alt="picture">
+    </div>
+
+    <div *ngIf="washInfo">
+        <button type="button" class="btn btn-default btn-block" *ngFor="let wash of washInfo?.wash_ser">
+       <span class="text-success pull-left" >{{ wash.ser_name }}</span>
+       <span class="text-success pull-right" ><i class="fa fa-check-square-o" aria-hidden="true"></i></span>
+     </button>
+    </div>
+
+
+
+</ion-content>

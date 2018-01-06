@@ -1,0 +1,46 @@
+<ion-header class="text-success" transparent>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Locations </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end (click)="goCenterme()">
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-globe fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+
+
+
+<ion-content>
+
+
+    <ion-spinner name="circles" *ngIf="locations === undefined && locationTracker.lng === undefined"></ion-spinner>
+    <div class="map-container" *ngIf='locations !== undefined && locationTracker.lat !== undefined'>
+        <div id="map">
+        </div>
+    </div>
+    <ion-fab left bottom>
+        <button ion-fab (click)="stop()" color="prox"><ion-icon ios="ios-menu" md="md-menu"></ion-icon></button>
+        <ion-fab-list side="top">
+            <button ion-fab color="prox" (click)="logOut()"><i class="fa fa-sign-out" aria-hidden="true"></i></button>
+            <button ion-fab color="prox" (click)="goToServices()"><i class="fa fa-cog" aria-hidden="true"></i></button>
+            <button ion-fab color="prox" (click)="goToFaq()"><i class="fa fa-question-circle-o" aria-hidden="true"></i></button>
+            <button ion-fab color="prox" (click)="goToProfile()"><i class="fa fa-user" aria-hidden="true"></i></button>
+        </ion-fab-list>
+    </ion-fab>
+
+    <ion-fab right bottom>
+        <button ion-fab color="prox" (click)="goToBookings()"><ion-icon ios="ios-home" md="md-home"></ion-icon></button>
+    </ion-fab>
+
+</ion-content>

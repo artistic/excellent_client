@@ -1,0 +1,122 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Add New Booking </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+            </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+
+            <button ion-button (click)="saveChanges()">
+             <span class="text-success"><i class="fa fa-check fa-2x" aria-hidden="true"></i></span>
+         </button>
+
+     </ion-buttons>
+
+ </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="geofence-details-page" padding>
+
+    <div class="row">
+
+        <div class="col-xs-2">
+            <small>
+              <span class="fa-stack fa-lg" (click)="takePic()">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-paperclip fa-stack-1x fa-inverse"></i>
+            </span>
+        </small>
+    </div>
+
+    <div class="col-xs-2">
+        <small>
+          <span class="fa-stack fa-lg" (click)="takePic2()">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-camera fa-stack-1x fa-inverse"></i>
+        </span>
+    </small>
+</div>
+<div class="col-xs-8">
+    <button type="button" (click)="uploadPic()" *ngIf="imageLocalURL" class="btn btn-success btn-block">
+        <small>
+          <span class="text-success">( <i class="fa fa-upload" aria-hidden="true"></i> <i> Upload First </i> )</span>
+      </small>
+  </button>
+</div>
+</div>
+<br>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="input-group margin-bottom-sm">
+            <span class="input-group-addon"><i class="fa fa-asterisk"></i></span>
+            <input class="form-control" [(ngModel)]="notificationText" type="text" placeholder="Type in your wash location">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <ion-item>
+            <ion-label><span class="text-success pull-left"><i class="fa fa-success"></i> Select Type Of Wash</span></ion-label>
+            <ion-select [(ngModel)]="selectedHazardType">
+                <ion-option *ngFor="let hazard of hazardTypes; let i = index;" value="{{i}}">{{hazard.name}}</ion-option>
+            </ion-select>
+        </ion-item>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <ion-item>
+            <ion-label><span class="text-success pull-left"><i class="fa fa-dot-circle-o"></i> Alerts When ...?</span></ion-label>
+            <ion-select [(ngModel)]="transitionType">
+                <ion-option value="1">Entering Region</ion-option>
+                <ion-option value="2">Exiting Region</ion-option>
+                <ion-option value="3">Entering or Exiting Region</ion-option>
+            </ion-select>
+        </ion-item>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <ion-item>
+            <ion-label><span class="text-success pull-left"><i class="fa fa-ban"></i> Select Your Vehicle
+            </span></ion-label>
+            <ion-select [(ngModel)]="selectedVehicleMake">
+                <ion-option *ngFor="let vehicle of myvehicles | async; let i = index;" value="{{vehicle.make}}">{{vehicle.make}}</ion-option>
+            </ion-select>
+        </ion-item>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <ion-item>
+            <ion-label><span class="text-success pull-left"><i class="fa fa-calendar"></i> Wash Date
+            </span></ion-label>
+            <ion-datetime displayFormat="DD/MMM/YY" [(ngModel)]="StartDate"></ion-datetime>
+        </ion-item>
+    </div>
+</div>
+<br>
+
+
+<div class="map-container2">
+    <div id="map2">
+    </div>
+</div>
+
+
+
+</ion-content>

@@ -1,0 +1,63 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">{{ WasherInfo.washer_name }} </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+            </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-square fa-stack-2x"></i>
+                <i class="fa fa-user fa-stack-1x fa-inverse"></i>
+            </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <div class="box-body box-profile">
+        <img class="profile-user-img img-responsive img-circle" [src]="WasherInfo.washer_image" alt="picture">
+    </div>
+
+    <ul class="list-group list-group-unbordered">
+      <li class="list-group-item">
+        <b>Washer Code</b> <a class="pull-right"><span class="text-success">
+          {{WasherInfo.washer_code}}
+      </span>
+  </a>
+</li>
+<li class="list-group-item">
+    <b>Washer Location</b> <a class="pull-right"><span class="text-success">
+      {{WasherInfo.washer_location}}
+  </span></a>
+</li>
+
+<li class="list-group-item">
+    <b>Washer Available</b> <a class="pull-right">
+        <span class="text-success" *ngIf="(WasherInfo.washer_available == 1)">
+            <span class="fa-stack fa-lg">
+  <i class="fa fa-square-o fa-stack-2x"></i>
+  <i class="fa fa-check fa-stack-1x text-success"></i>
+</span>
+        </span>
+
+        <span class="text-success" *ngIf="(WasherInfo.washer_available == 2)">
+            <span class="fa-stack fa-lg">
+  <i class="fa fa-square-o fa-stack-2x"></i>
+  <i class="fa fa-times fa-stack-1x text-danger"></i>
+</span>
+        </span>
+    </a>
+</li>
+</ul>
+
+
+
+
+</ion-content>

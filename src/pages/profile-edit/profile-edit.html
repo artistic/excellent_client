@@ -1,0 +1,56 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Edit Profile</span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="editTools">
+
+    </div>
+    <hr/>
+
+    <div class="box-body box-profile">
+        <img class="profile-user-img img-responsive img-circle" [src]="userDisplayPhoto" alt="picture">
+
+        <h3 class="profile-username text-center">{{userDisplayEmail}}</h3>
+
+        <p class="text-muted text-center">
+            {{userDisplayTel}}
+            <span class="pull-right" *ngIf="(userDisplayTel == +27)" (click)="updateTel()">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </span>
+        </p>
+
+        <ul class="list-group list-group-unbordered">
+            <li class="list-group-item">
+                <b>Number Of Washes</b> <a class="pull-right"><span class="text-success">
+                    <!-- Count The Number Of Washes -->
+                  </span></a>
+            </li>
+            <li class="list-group-item">
+                <b>Vehicles</b> <a class="pull-right"><span class="text-success">543</span></a>
+            </li>
+        </ul>
+
+        <a href="#" class="btn btn-success btn-block"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</a>
+        <br>
+        <a href="#" class="btn btn-danger btn-block" (click)="goToReset()"><i class="fa fa-window-restore" aria-hidden="true"></i> Reset Password</a>
+    </div>
+
+</ion-content>

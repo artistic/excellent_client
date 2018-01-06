@@ -1,0 +1,54 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Water Saving Tips </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa fa-lightbulb-o fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="thumbnail">
+        <img src="assets/img/tip.jpg">
+    </div>
+
+
+
+    <br>
+
+    <div class="box-footer box-comments">
+        <div class="box-comment" *ngFor="let tips of tips | async">
+            <!-- User image -->
+            <img class="img-circle img-sm" src="assets/img/save.png" alt="User Image">
+
+            <div class="comment-text">
+                <span class="username">
+        <span class="text-success">
+        {{tips.tip_intro}}
+      </span>
+                <span class="text-muted pull-right">
+          <i class="fa fa-certificate" aria-hidden="true"></i>
+        </span>
+                </span>
+                <small>
+        {{tips.tip_main}}
+      </small>
+            </div>
+
+        </div>
+    </div>
+
+
+</ion-content>

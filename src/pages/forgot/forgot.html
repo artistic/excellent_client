@@ -1,0 +1,58 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Forgot Password </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa fa-question-circle-o fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="direct-chat direct-chat-info">
+                <div class="direct-chat-msg right">
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                        <small><i class="fa fa-info-circle" aria-hidden="true"></i> You forgot your password ? No worries just enter
+                        your registered email address below and you can reset it.</small>
+                    </div>
+                    <!-- /.direct-chat-text -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-body box-profile">
+        <img class="profile-user-img img-responsive img-circle" src="assets/img/app_logo.png" alt="picture">
+        <br>
+        <form [formGroup]="resetpwdForm" (submit)="resetPwd()" novalidate>
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)" placeholder="Your email address" [class.invalid]="!resetpwdForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+            </ion-item>
+            <ion-item class="error-message" *ngIf="!resetpwdForm.controls.email.valid  && (emailChanged || submitAttempt)">
+                <p>Please enter a valid email.</p>
+            </ion-item>
+            <button ion-button block type="submit">
+          Reset Password
+        </button>
+        </form>
+    </div>
+</ion-content>

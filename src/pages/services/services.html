@@ -1,0 +1,76 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Services</span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-cogs fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="direct-chat direct-chat-success">
+                <div class="direct-chat-msg right">
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text" (click)="goTips()">
+                        <small><i class="fa fa-lightbulb-o" aria-hidden="true"></i> Water Saving Tips</small>
+                    </div>
+                    <!-- /.direct-chat-text -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div [navPush]="cityPage" class="col-xs-6" *ngFor="let services of services | async">
+            <div class="thumbnail" (click)="goToServiceDetail(services)">
+                <img [src]="services.servicePics" alt="service" class="img-responsive"><br>
+                <span class="text-success align-center"><small>{{services.name}}</small></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <button type="button" class="btn btn-success btn-block" (click)="goToAvailable()">
+                <i class="fa fa-map-marker" aria-hidden="true"></i> 
+              Check Available Locations
+            </button>
+        </div>
+    </div>
+
+
+    <h4><span class="text-success">Brands Trust Us To Wash Their Cars</span></h4>
+
+    <div class="row">
+        <div class="col-xs-3">
+            <img src="assets/img/client1.jpg" class="profile-user-img img-responsive img-circle" alt="clients">
+        </div>
+        <div class="col-xs-3">
+            <img src="assets/img/client2.jpg" class="profile-user-img img-responsive img-circle" alt="clients">
+        </div>
+        <div class="col-xs-3">
+            <img src="assets/img/client3.jpg" class="profile-user-img img-responsive img-circle" alt="clients">
+        </div>
+        <div class="col-xs-3">
+            <img src="assets/img/client4.jpg" class="profile-user-img img-responsive img-circle" alt="clients">
+        </div>
+    </div>
+
+</ion-content>

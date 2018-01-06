@@ -1,0 +1,56 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Excellent Eco Carwash</span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg" (click)="saveChanges()">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+
+
+<ion-content class="geofence-details-page" padding>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="register-box-body">
+                <img class="profile-user-img img-responsive img-circle" [src]="profilePicture" alt="picture">
+
+                <form [formGroup]="registerForm" (submit)="doRegister()" novalidate>
+                    <ion-item>
+                        <ion-label stacked>Email</ion-label>
+                        <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)" placeholder="Your email address" [class.invalid]="!registerForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+                    </ion-item>
+                    <ion-item class="error-message" *ngIf="!registerForm.controls.email.valid  && (emailChanged || submitAttempt)">
+                        <p>Please enter a valid email.</p>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label stacked>Password</ion-label>
+                        <ion-input #password formControlName="password" type="password" (change)="elementChanged(password)" placeholder="Your password" [class.invalid]="!registerForm.controls.password.valid && (passwordChanged || submitAttempt)"></ion-input>
+                    </ion-item>
+                    <ion-item class="error-message" *ngIf="!registerForm.controls.password.valid  && (passwordChanged || submitAttempt)">
+                        <p>Your password needs more than 6 characters.</p>
+                    </ion-item>
+
+                    <button ion-button block type="submit">
+            Register
+          </button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+
+</ion-content>

@@ -1,0 +1,41 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Reset Password </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa fa-key fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="editTools">
+
+    </div>
+    <hr/>
+
+    <form [formGroup]="resetpwdForm" (submit)="resetPwd()" novalidate>
+        <ion-item>
+            <ion-label stacked>Email</ion-label>
+            <ion-input #email formControlName="email" type="email" (change)="elementChanged(email)" placeholder="Your email address" [class.invalid]="!resetpwdForm.controls.email.valid && (emailChanged || submitAttempt)"></ion-input>
+        </ion-item>
+        <ion-item class="error-message" *ngIf="!resetpwdForm.controls.email.valid  && (emailChanged || submitAttempt)">
+            <p>Please enter a valid email.</p>
+        </ion-item>
+        <button ion-button block type="submit">
+      Reset Password
+    </button>
+    </form>
+
+</ion-content>

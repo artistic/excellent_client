@@ -1,0 +1,80 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">{{vehicleInfo.make}} </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa fa-car fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="row" *ngIf="(vehicleInfo.image == 'assets/img/vehicle.png')" >
+        <div class="col-xs-12">
+            <div class="direct-chat direct-chat-info">
+                <div class="direct-chat-msg right">
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text" (click)="addVehicle()">
+                        <small><i class="fa fa-warning" aria-hidden="true"></i> Its seems you havent fully completed your vehicle profile. Please get you vehicle profile to 100%</small>
+                    </div>
+                    <!-- /.direct-chat-text -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="box-body box-profile">
+
+        <img class="profile-user-img img-responsive img-circle" *ngIf="(!vehicleInfo.image == 0)" src="{{vehicleInfo.image}}" alt="picture" (click)="takePic()">
+        <img class="profile-user-img img-responsive img-circle" *ngIf="(vehicleInfo.image == 0)" src="assets/img/app_logo.png" alt="picture" (click)="takePic()">
+        <br/>
+
+        <ul class="list-group list-group-unbordered">
+            <li class="list-group-item">
+                <b>Number Plates</b> <a class="pull-right"><span class="text-success" (click)="editPlates(vehicleInfo)">
+                    {{vehicleInfo.plates}}
+                </span></a>
+            </li>
+            <li class="list-group-item">
+                <b>Vehicle Type</b> 
+                <a class="pull-right">
+                    <span class="text-success" *ngIf="(vehicleInfo.type == 0)" (click)="editType(vehicleInfo)"> Not Defined</span>
+                    <span class="text-success" *ngIf="(vehicleInfo.type == 1)" (click)="editTyped(vehicleInfo)"> SUV</span>
+                    <span class="text-success" *ngIf="(vehicleInfo.type == 2)" (click)="editTyped(vehicleInfo)"> Passenger</span>
+                    <span class="text-success" *ngIf="(vehicleInfo.type == 3)" (click)="editTyped(vehicleInfo)"> Minibus</span>
+                    <span class="text-success" *ngIf="(vehicleInfo.type == 4)" (click)="editTyped(vehicleInfo)"> Fleet</span>
+                </a>
+            </li>
+            
+            <li class="list-group-item">
+                <b>Color</b> <a class="pull-right"><span class="text-success">
+                    <img class="img-responsive" *ngIf="(vehicleInfo.color == 0)" src="assets/img/color/empty.jpg" width="25px" (click)="editColor(vehicleInfo)" />
+                    <img class="img-responsive" *ngIf="(vehicleInfo.color == 1)" src="assets/img/color/black.jpg" width="25px" (click)="editColor(vehicleInfo)"/>
+                    <img class="img-responsive" *ngIf="(vehicleInfo.color == 2)" src="assets/img/color/blue.jpg" width="25px" (click)="editColor(vehicleInfo)"/>
+                    <img class="img-responsive" *ngIf="(vehicleInfo.color == 3)" src="assets/img/color/green.jpg" width="25px" (click)="editColor(vehicleInfo)"/>
+                    <img class="img-responsive" *ngIf="(vehicleInfo.color == 4)" src="assets/img/color/other.jpg" width="25px" />
+                    <img class="img-responsive" *ngIf="(vehicleInfo.color == 5)" src="assets/img/color/red.jpg" width="25px" (click)="editColor(vehicleInfo)"/>
+                    <img class="img-responsive" *ngIf="(vehicleInfo.color == 6)" src="assets/img/color/silver.jpg" width="25px" (click)="editColor(vehicleInfo)"/>
+                    <img class="img-responsive" *ngIf="(vehicleInfo.color == 7)" src="assets/img/color/white.jpg" width="25px" (click)="editColor(vehicleInfo)"/>
+                </span></a>
+            </li>
+
+
+      </ul>
+
+    </div>
+
+</ion-content>

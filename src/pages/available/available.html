@@ -1,0 +1,60 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">Available Suburbs </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa fa-location-arrow fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="editTools">
+        <div class="col-xs-12">
+            <div class="direct-chat direct-chat-success">
+                <div class="direct-chat-msg right">
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                        <small>check to see if we in your area yet.</small>
+                    </div>
+                    <!-- /.direct-chat-text -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <hr/>
+
+    <div class="header_ndini">
+        <h3><span class="text-success">Suburbs You Can Find Us</span></h3>
+
+        <div class="list-group">
+            <button type="button" class="list-group-item" *ngFor="let available of available | async" (click)="goToAvailableDetail(available)">
+        <span class="city_text">
+        {{available.name}}
+      </span>
+      <span class="pull-right">
+          <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </span>
+      </button>
+        </div>
+
+    </div>
+
+
+
+
+</ion-content>

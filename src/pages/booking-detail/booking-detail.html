@@ -1,0 +1,111 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">{{ bookingInfo.wash_text }} </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-book fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="editTools">
+        <div class="col-xs-3">
+            <div class="thumbnail">
+                <img src="{{bookingInfo.wash_image }}" class="img-responsive" alt="wash type">
+            </div>
+        </div>
+        <div class="col-xs-9">
+            <div class="row">
+                <div class="col-xs-9">
+                    <small><span class="date_text text-success">{{ bookingInfo.wash_text}}</span></small><br>
+                    <span class="date_text text-success">{{ bookingInfo.booking_date}}</span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="text-danger pull-right" *ngIf="(bookingInfo.wash_status == 0)">
+                  <i class="fa fa-question-circle-o fa-3x" aria-hidden="true"></i>
+                </span>
+                    <span class="text-danger pull-right" *ngIf="(bookingInfo.wash_status == 1)">
+              <i class="fa fa-hourglass-start fa-3x" aria-hidden="true"></i>
+            </span>
+                    <span class="text-success pull-right" *ngIf="(bookingInfo.wash_status == 2)">
+              <i class="fa fa-thumbs-up fa-3x" aria-hidden="true"></i>
+            </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="wash_details">
+
+        <div class="box-body box-profile">
+
+         <div class="edit_tools">
+
+            <span class="fa-stack fa-xs text-info" (click)="editBooking(bookingInfo)">
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+          </span>
+
+          <span class="fa-stack fa-xs text-danger" >
+              <i class="fa fa-circle fa-stack-2x"></i>
+              <i class="fa fa-trash fa-stack-1x fa-inverse"></i>
+          </span>
+      </div>
+
+            <ul class="list-group list-group-bordered">
+                <li class="list-group-item">
+                    <b><i class="fa fa-car" aria-hidden="true"></i> Vehicle</b>
+                    <a class="pull-right" *ngIf="(!bookingInfo.wash_vehicle == 0)">
+                            {{bookingInfo.wash_vehicle}}
+                    </a>
+                    <a class="pull-right" *ngIf="(bookingInfo.wash_vehicle == 0)">
+                            Default
+                    </a>
+                </li>
+                <li class="list-group-item">
+                    <b><i class="fa fa-bath" aria-hidden="true"></i> Wash Type</b>
+                    <a class="pull-right"><img class="img-responsive" src="{{bookingInfo.wash_image}}" width="25px" height="25px" /></a>
+                </li>
+                <li class="list-group-item">
+                    <b><i class="fa fa-money" aria-hidden="true"></i> Wash Cost</b>
+                    <a class="pull-right" *ngIf="(!bookingInfo.wash_price == 0)">
+                            {{bookingInfo.wash_price}}
+                        </a>
+
+                    <a class="pull-right" *ngIf="(bookingInfo.wash_price == 0)">
+                                Waiting...
+                        </a>
+
+                </li>
+
+                <li class="list-group-item">
+                    <b><i class="fa fa-user" aria-hidden="true"></i> Eco Washer</b>
+                    <a class="pull-right" *ngIf="(!bookingInfo.wash_washer == 0)">
+                        {{bookingInfo.wash_washer}}
+                    </a>
+
+                    <a class="pull-right" *ngIf="(bookingInfo.wash_washer == 0)">
+                       Waiting ...
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+<div id='map'></div>
+
+</ion-content>

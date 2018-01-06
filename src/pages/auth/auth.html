@@ -1,0 +1,55 @@
+<ion-header no-border>
+
+
+
+</ion-header>
+
+
+<ion-content>
+
+
+
+
+    <div class="top_image">
+        <div class="thumbnail">
+            <img src="assets/images/logo.png" alt="Ionic logo">
+        </div>
+    </div>
+
+
+    <div class="login">
+        <span class="motto text-success">Waterless auto detailing services</span><br/>
+        <br/>
+        <form>
+            <div class="form-group has-feedback">
+                <input type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input class="form-control form-control-lg" type="password" name="password" placeholder="Password" [(ngModel)]="password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+
+            <div class="row">
+
+                <div class="col-xs-9">
+                    <a href="#" (click)="goToRegister()"><small>I dont have an account </small></a><br/>
+                    <a href="#" (click)="goToForgot()"><small>Forgot Password </small></a>
+                </div>
+
+                <span class="pull-right text-success">
+          <div class="col-xs-3">
+            <a href="#" class="round-button" (click) = "login()"><ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon></a>
+        </div>
+      </span>
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+</ion-content>

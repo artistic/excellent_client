@@ -1,0 +1,195 @@
+<ion-header class="text-success" no-border>
+  <ion-navbar color="white">
+
+    <ion-segment [(ngModel)]="cat">
+      <ion-segment-button value="profile">
+        <i class="fa fa-globe fa-1x" aria-hidden="true"></i> Profile
+      </ion-segment-button>
+      <ion-segment-button value="bookings">
+        <span class="our_text">
+          <i class="fa fa-book" aria-hidden="true"></i>
+          Bookings
+        </span>
+      </ion-segment-button>
+      <ion-segment-button value="vehicles">
+        <span class="our_text">
+          <i class="fa fa-car" aria-hidden="true"></i>
+          Vehicles
+        </span>
+      </ion-segment-button>
+    </ion-segment>
+
+
+  </ion-navbar>
+</ion-header>
+
+
+
+<ion-content padding>
+
+  <div [ngSwitch]="cat">
+
+    <ion-list *ngSwitchCase="'profile'">
+      <div class="box-body box-profile">
+        <img class="profile-user-img img-responsive img-circle" *ngIf="(!userDisplayPhoto == 0)" src="{{userDisplayPhoto}}"   alt="picture">
+        <h3 class="profile-username text-center">{{userDisplayEmail}}</h3>
+
+        <p class="text-muted text-center">
+          {{userDisplayName}}
+        </p>
+
+        <ul class="list-group list-group-unbordered">
+          <li class="list-group-item">
+            <b>Mobile</b> <a class="pull-right"><span class="text-success">
+              {{userDisplayTel}}
+            </span>
+          </a>
+          </li>
+          <li class="list-group-item">
+            <b>Points</b> <a class="pull-right"><span class="text-success">
+              <!-- Get Count Of Vehicle -->
+            </span></a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button type="button" (click)="editName(userDisplayName,userDisplayTel)" class="btn btn-info btn-block"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Profile</button>
+        </div>
+      </div>
+
+      <br>
+       <h3 class="text-success header_ndini">Share Application With Your Friends</h3>
+      <div class="row">
+        <div class="col-xs-4">
+
+        </div>
+
+        <div class="col-xs-4">
+
+        </div>
+
+        <div class="col-xs-4">
+          <a class="btn btn-app">
+                <i class="fa fa-share-alt text-success" (click)="shareInfo()"></i> Share
+              </a>
+        </div>
+      </div>
+    </ion-list>
+
+
+
+
+    <ion-list *ngSwitchCase="'bookings'">
+      <div class="row">
+
+        <div class="col-xs-12">
+          <div class="direct-chat-info">
+            <div class="direct-chat-msg right">
+              <!-- /.direct-chat-info -->
+              <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+              <!-- /.direct-chat-img -->
+              <div class="direct-chat-text" (click)="goToHazards()">
+                <small><i class="fa fa-plus" aria-hidden="true"></i> {{userDisplayEmail}} you can quickly add you booking. <strong>Press Here</strong></small>
+              </div>
+              <!-- /.direct-chat-text -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <ul class="products-list product-list-in-box">
+        <li class="item" *ngFor="let bookings of (bookings | async ) ?.slice().reverse()" (click)="goBookingDetail(bookings)">
+          <div class="row">
+            <div class="col-xs-2">
+              <img class="img-responsive img-circle" *ngIf="(!bookings.wash_picture == 0)" src="{{bookings.wash_picture}}" width="100%" />
+              <img class="img-responsive img-circle" *ngIf="(bookings.wash_picture == 0)" src="assets/img/app_logo.png" width="100%" />
+            </div>
+
+            <div class="col-xs-8">
+              <span class="booking_title text-success">{{bookings.wash_text}}</span>
+              <span class="text-danger pull-right" *ngIf="(bookings.wash_status == 0)">
+                <i class="fa fa-question-circle-o " aria-hidden="true"></i>
+              </span>
+              <span class="text-danger pull-right" *ngIf="(bookings.wash_status == 1)">
+                <i class="fa fa-hourglass-start" aria-hidden="true"></i>
+              </span>
+              <span class="text-success pull-right" *ngIf="(bookings.wash_status == 2)">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+              </span>
+              <br>
+                <small><i class="fa fa-calendar" aria-hidden="true"></i> {{bookings.booking_date}}</small>
+
+  
+
+            </div>
+
+            <div class="col-xs-2">
+              <span class="pull-right">
+                <img class="img-responsive img-circle" *ngIf="(!bookings.wash_image == 0)" src="{{bookings.wash_image}}" width="100%" />
+                <img class="img-responsive img-circle" *ngIf="(bookings.wash_image == 0)" src="assets/img/app_logo.png" width="100%" />
+              </span>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'vehicles'">
+
+      <div class="row">
+        <div class="col-xs-12">
+            <div class="direct-chat direct-chat-info">
+                <div class="direct-chat-msg right">
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text" (click)="addVehicle()">
+                        <small><i class="fa fa-info-circle" aria-hidden="true"></i> With our Excellent Eco Mobile you can now manage even a fleet of vehicles ask you Excellent Washer about the details</small>
+                    </div>
+                    <!-- /.direct-chat-text -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <ul class="products-list product-list-in-box">
+        <li class="item" *ngFor="let vehicles of vehicles | async" (click)="goVehicleDetail(vehicles)">
+          <div class="product-img">
+            <img *ngIf="(!vehicles.image == 0)" src="{{vehicles.image}}" width="100%" />
+            <img *ngIf="(vehicles.image == 0)" src="assets/img/app_logo.png" width="100%" />
+          </div>
+          <div class="product-info">
+            <a href="javascript:void(0)" class="product-title">{{vehicles.make}}
+              <!-- Vehicle Type -->
+              <span class="label label-warning pull-right" *ngIf="(vehicles.type == 0)" >
+                Vehicle Type
+              </span>
+
+              <span class="label label-warning pull-right" *ngIf="(vehicles.type == 1)" >
+                SUV
+              </span>
+
+              <span class="label label-warning pull-right" *ngIf="(vehicles.type == 2)" >
+                Passenger
+              </span>
+
+              <span class="label label-warning pull-right" *ngIf="(vehicles.type == 3)" >
+                Minibus
+              </span>
+
+              <span class="label label-warning pull-right" *ngIf="(vehicles.type == 4)" >
+                Fleet
+              </span>
+            </a>
+            <span class="product-description">
+              {{vehicles.plates}}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </ion-list>
+  </div>
+
+</ion-content>

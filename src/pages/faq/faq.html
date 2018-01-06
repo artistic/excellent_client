@@ -1,0 +1,54 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">FAQs </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa fa-question-circle-o fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="direct-chat direct-chat-info">
+                <div class="direct-chat-msg right">
+                    <!-- /.direct-chat-info -->
+                    <img class="direct-chat-img" src="assets/img/avatar.png" alt="user">
+                    <!-- /.direct-chat-img -->
+                    <div class="direct-chat-text">
+                        <small><i class="fa fa-plus" aria-hidden="true"></i> These are some of the questions people frequently ask about Excellent Eco Carwash Mobile.</small>
+                    </div>
+                    <!-- /.direct-chat-text -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr/>
+
+    <div class="box-body chat" id="chat-box">
+        <div class="item" *ngFor="let faq of faqs | async" (click)="goToFaqDetail(faq)">
+            <img src="assets/img/user.jpg" alt="user image" class="online image_small">
+
+            <p class="message">
+                <span class="pageText text-success">
+          <small class="text-muted pull-right"><ion-icon ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon></small>
+          {{faq.faq_question}}
+        </span><br>
+            </p>
+            <hr/>
+        </div>
+    </div>
+
+</ion-content>

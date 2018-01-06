@@ -1,0 +1,96 @@
+page-bookings {
+
+ .content{
+   background-color : #FFFFFF;
+  }
+
+  #map {
+        width: 100%;
+        height: 60%;
+  }
+
+  .choose {
+    margin-top : 150px;
+  }
+
+  ion-label > i {
+    margin-right: 5px !important;;
+    position: relative !important;;
+    top: 5px !important;;
+    font-size: 15px !important;;
+  }
+
+  .margin-top20 {
+    margin-top: 20px;
+  }
+
+
+
+  .title div {
+    color: #1488f0;
+  }
+
+  .flex-space-between {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .label-ios {
+    color: #999;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .button-clear-ios, .button-clear-md {
+    font-size: smaller;
+  }
+
+  .our_text {
+    font-size : 12px;
+  font-weight: lighter;
+  align : center;
+  font-color : #00923C;
+
+  }
+  .booking_title {
+    font-size : 14px;
+  font-weight: light;
+  align : center;
+  font-color : #00923C;
+  text-transform: capitalize;
+  }
+
+  .product-description {
+    font-size : 9px;
+  }
+
+  .test_me {
+    height: 50px;
+    line-height: 80px;
+  }
+  ion-segment-button{
+  //max-width: 25px;
+  border-style: solid;
+}
+
+.segment-button {
+  border-style: none;
+  border-color: #e62100;
+  color: #e62100;
+  border-width: thin;
+}
+
+
+.editTools {
+    width : 100%;
+    height : 30px;
+  }
+
+ .segment-activated{
+  background-color: #e62100;
+  color: #ffffff;
+}
+
+}

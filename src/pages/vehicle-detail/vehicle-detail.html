@@ -1,0 +1,63 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">{{vehicleInfo.make}}</span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-car fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <div class="wash_details">
+
+
+        <img class="profile-user-img img-responsive img-circle" src="{{vehicleInfo.color}}" alt="vehicle">
+
+
+        <div class="box-body box-profile">
+            <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                    <b>Number Plates</b> <a class="pull-right">{{vehicleInfo.make}}</a>
+                </li>
+                <li class="list-group-item">
+                    <b>Vehicle Type</b> <a class="pull-right">{{vehicleInfo.type}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <button type="button" class="btn btn-info btn-block">
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+          Edit {{vehicleInfo.make}}
+        </button>
+            </div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-xs-12">
+                <button type="button" class="btn btn-danger btn-block">
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          Delete {{vehicleInfo.make}}
+        </button>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+</ion-content>

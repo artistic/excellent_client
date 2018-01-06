@@ -1,0 +1,105 @@
+<ion-header>
+  <ion-navbar  color="prox">
+    <ion-title>PROXiNsurance<small>&reg;</small> </ion-title>
+    <ion-buttons start>
+      <button ion-button>
+        Presentation Mode
+      </button>
+    </ion-buttons>
+
+    <ion-buttons end>
+        <div class="row">
+          <div class="col-xs-12">
+          </div>
+        </div>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="row">
+    <div class="col-xs-4 pull-right">
+      <small>
+        <button type="button" class="btn btn-info btn-xs btn-block"><i class="fa fa-file-excel-o" aria-hidden="true"></i> Export as Excel</button>
+      </small>
+    </div>
+
+    <div class="col-xs-4 pull-right">
+      <button type="button" class="btn btn-success btn-xs btn-block"><i class="fa fa-paperclip" aria-hidden="true"></i> Send attachment</button>
+    </div>
+
+    <div class="col-xs-4 pull-right">
+      <button type="button" class="btn btn-navy btn-xs btn-block"><i class="fa fa-share" aria-hidden="true"></i> Share Report</button>
+    </div>
+
+ </div>
+
+<br>
+ <div class="row">
+    <div class="col-xs-12">
+     <ul class="list-group list-group-unbordered">
+      <li class="list-group-item">
+        <b><span class="text-info"><i class="fa fa-users" aria-hidden="true"></i> Clients On App</span></b> <a class="pull-right">60 users</a>
+      </li>
+      <li class="list-group-item">
+        <b><span class="text-warning"><i class="fa fa-warning" aria-hidden="true"></i>Total Claims</span></b> <a class="pull-right">54 Claims</a>
+      </li>
+      <li class="list-group-item">
+        <b><span class="text-danger"><i class="fa fa-bell-o" aria-hidden="true"></i> Alerts Sent Out</span></b> <a class="pull-right">3,287 Alerts</a>
+      </li>
+    </ul>
+   </div>
+ </div>
+
+ <div class="row">
+ <div class="col-xs-3">
+    <div class="description-block border-right">
+      <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 78%</span>
+      <h5 class="description-header">47</h5>
+      <span class="description-text"><i class="fa fa-home" aria-hidden="true"></i> Housing</span>
+    </div>
+    <!-- /.description-block -->
+  </div>
+  <!-- /.col -->
+  <div class="col-xs-3">
+    <div class="description-block border-right">
+      <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 16%</span>
+      <h5 class="description-header">10</h5>
+      <span class="description-text"><i class="fa fa-car" aria-hidden="true"></i> Vehicle</span>
+    </div>
+    <!-- /.description-block -->
+  </div>
+  <!-- /.col -->
+  <div class="col-xs-3">
+    <div class="description-block border-right">
+      <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 6%</span>
+      <h5 class="description-header">3</h5>
+      <span class="description-text"><i class="fa fa-male" aria-hidden="true"></i> Personal</span>
+    </div>
+    <!-- /.description-block -->
+  </div>
+  <!-- /.col -->
+  <div class="col-xs-3">
+    <div class="description-block">
+      <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 0%</span>
+      <h5 class="description-header">0</h5>
+      <span class="description-text"><i class="fa fa-file" aria-hidden="true"></i> Other</span>
+    </div>
+    <!-- /.description-block -->
+  </div>
+</div>
+
+
+
+<ion-card>
+      <ion-card-content>
+        <canvas #barCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+
+
+
+</ion-content>

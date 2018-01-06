@@ -1,0 +1,50 @@
+<ion-header class="text-success" no-border>
+    <ion-navbar color="white">
+
+        <ion-title><span class="text-success header_ndini">{{ ServiceInfo.name }} </span></ion-title>
+        <ion-buttons start>
+            <button ion-button>
+
+      </button>
+        </ion-buttons>
+
+        <ion-buttons end>
+            <span class="fa-stack fa-lg">
+        <i class="fa fa-square fa-stack-2x"></i>
+        <i class="fa fa-car fa-stack-1x fa-inverse"></i>
+      </span>
+        </ion-buttons>
+
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+
+    <div class="box-body box-profile">
+        <img class="profile-user-img img-responsive img-circle" (click)="goToWash(about)" [src]="ServiceInfo.servicePics" alt="picture">
+    </div>
+
+
+    <div class="box-body" *ngIf="ServiceInfo">
+        <ul class="products-list product-list-in-box">
+            <li class="item" *ngFor="let about of ServiceInfo?.about">
+                <div class="product-img">
+                    <img [src]="about.wash_image" alt="picture">
+                </div>
+                <div class="product-info">
+                    <a href="#" (click)="goToWash(about)" class="product-title lite">{{about.wash_type}}
+            <span class="label label-success pull-right">R{{about.wash_price}}</span></a>
+                    <span class="product-description">
+              <small>
+
+            </small>
+            </span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+
+</ion-content>
